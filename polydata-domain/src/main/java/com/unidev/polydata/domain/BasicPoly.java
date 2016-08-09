@@ -7,9 +7,6 @@ import java.util.HashMap;
  */
 public class BasicPoly extends HashMap<String, Object> implements Poly {
 
-    public static final String LINK_KEY = "link";
-    public static final String ID_KEY = "_id";
-
     public static BasicPoly newPoly() {return new BasicPoly(); }
 
     public static BasicPoly newPoly(String id) {return new BasicPoly()._id(id);}
