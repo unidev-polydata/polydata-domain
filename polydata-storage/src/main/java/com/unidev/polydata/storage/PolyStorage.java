@@ -29,11 +29,11 @@ public interface PolyStorage {
      * @param id Poly id
      * @return stored poly or null if nothing found
      */
-    Poly fetchById(String id);
+     <T extends Poly> T fetchById(String id);
 
     /**
      * List stored poly records
      * @return
      */
-    Collection<Poly> list();
+    Collection<? extends Poly> list();
 }
