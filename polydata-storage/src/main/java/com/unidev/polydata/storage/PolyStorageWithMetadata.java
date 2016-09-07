@@ -11,7 +11,7 @@ public interface PolyStorageWithMetadata extends PolyStorage  {
      * Fetch storage metadata
      * @return Storage metadata
      */
-    <T extends Poly> T fetchMetadata();
+    Poly fetchMetadata();
 
 
 }
