@@ -4,6 +4,16 @@ Entities for storing poly records, API interface for accessing poly records
 
 Java 7 version for Android compatibility
 
+Gradle dependencies
+
+```
+compile 'com.unidev.polydata:polydata-domain:2.0.0-SNAPSHOT'
+
+compile 'com.unidev.polydata:polydata-storage:2.0.0-SNAPSHOT'
+
+```
+
+
 License
 =======
  
