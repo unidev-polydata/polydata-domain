@@ -22,8 +22,17 @@ import java.util.HashMap;
  */
 public class BasicPoly extends HashMap<String, Object> implements Poly {
 
+    /**
+     * Build new poly instance
+     * @return new poly instance
+     */
     public static BasicPoly newPoly() {return new BasicPoly(); }
 
+    /**
+     * New poly instance with id
+     * @param id Poly id
+     * @return new poly instance with provided id
+     */
     public static BasicPoly newPoly(String id) {return new BasicPoly()._id(id);}
 
     /**
