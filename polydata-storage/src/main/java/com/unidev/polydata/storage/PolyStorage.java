@@ -36,4 +36,10 @@ public interface PolyStorage {
      * @return
      */
     Collection<? extends Poly> list();
+
+    /**
+     * Fetch storage metadata
+     * @return
+     */
+    <T extends Poly> T metadata();
 }
