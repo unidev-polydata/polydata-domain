@@ -25,6 +25,12 @@ import java.util.Collection;
 public interface PolyStorage {
 
     /**
+     * Fetch storage metadata
+     * @return
+     */
+    <T extends Poly> T metadata();
+
+    /**
      * Fetch poly record by id
      * @param id Poly id
      * @return stored poly or null if nothing found
@@ -38,8 +44,8 @@ public interface PolyStorage {
     Collection<? extends Poly> list();
 
     /**
-     * Fetch storage metadata
-     * @return
+     * Fetch poly count
+     * @return return number of stored polys
      */
-    <T extends Poly> T metadata();
+    long size();
 }
