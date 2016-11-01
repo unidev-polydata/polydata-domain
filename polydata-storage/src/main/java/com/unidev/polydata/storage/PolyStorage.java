@@ -28,14 +28,14 @@ public interface PolyStorage {
      * Fetch storage metadata
      * @return
      */
-    <T extends Poly> T metadata();
+    <P extends Poly> P metadata();
 
     /**
      * Fetch poly record by id
      * @param id Poly id
      * @return stored poly or null if nothing found
      */
-     <T extends Poly> T fetchById(String id);
+     <P extends Poly> P fetchById(String id);
 
     /**
      * List stored poly records
@@ -48,4 +48,19 @@ public interface PolyStorage {
      * @return return number of stored polys
      */
     long size();
+
+    /**
+     * Persist poly into storage
+     * @param poly Poly to store
+     * @param <P>
+     * @return
+     */
+    <P extends Poly> P persist(P poly);
+
+    /**
+     * Remove poly from storage
+     * @param id
+     * @return true - if success, false - if poly not found
+     */
+    boolean remove(String id);
 }
