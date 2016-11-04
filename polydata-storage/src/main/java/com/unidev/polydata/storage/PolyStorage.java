@@ -18,6 +18,7 @@ package com.unidev.polydata.storage;
 import com.unidev.polydata.domain.Poly;
 
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * Generic poly storage
@@ -29,6 +30,12 @@ public interface PolyStorage {
      * @return
      */
     <P extends Poly> P metadata();
+
+    /**
+     * Fetch storage indexes, mapped by name
+     * @return
+     */
+    Map<String, ? extends PolyStorage> index();
 
     /**
      * Fetch poly record by id
