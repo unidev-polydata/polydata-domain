@@ -1,18 +1,25 @@
-# polydata-domain
+# Polydata domain
 
-Entities for storing poly records, API interface for accessing poly records
+Domain classes for poly records, storage, service
 
 Java 7 version for Android compatibility
 
-Gradle dependencies
+Development version 2.1.0-SNAPSHOT
 
 ```
-compile 'com.unidev.polydata:polydata-domain:2.0.0-SNAPSHOT'
-
-compile 'com.unidev.polydata:polydata-storage:2.0.0-SNAPSHOT'
-
+compile 'com.unidev.polydata:polydata-domain:2.1.0-SNAPSHOT'
+compile 'com.unidev.polydata:polydata-storage:2.1.0-SNAPSHOT'
 ```
 
+Releases
+========
+
+version 2.0.0 - basic API for polys storage
+
+```
+compile 'com.unidev.polydata:polydata-domain:2.0.0'
+compile 'com.unidev.polydata:polydata-storage:2.0.0'
+```
 
 License
 =======
