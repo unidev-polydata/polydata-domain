@@ -1,5 +1,6 @@
 dependencies {
-    compile project(':polydata-domain')
+    compile project(':polydata-storage')
+    compile project(':polydata-service')
 }
 
 
