@@ -17,36 +17,24 @@ package com.unidev.polydata.storage;
 
 import com.unidev.polydata.domain.Poly;
 
-import java.util.Collection;
-
 /**
- * Generic poly storage
+ * Poly storage which allows changes on stored records
  */
-public interface PolyStorage {
+public interface ChangablePolyStorage extends PolyStorage {
 
     /**
-     * Fetch storage metadata
+     * Persist poly into storage
+     * @param poly Poly to store
+     * @param <P>
      * @return
      */
-    <P extends Poly> P metadata();
+    <P extends Poly> P persist(P poly);
 
     /**
-     * Fetch poly record by id
-     * @param id Poly id
-     * @return stored poly or null if nothing found
+     * Remove poly from storage
+     * @param id
+     * @return true - if success, false - if poly not found
      */
-     <P extends Poly> P fetchById(String id);
-
-    /**
-     * List stored poly records
-     * @return
-     */
-    Collection<? extends Poly> list();
-
-    /**
-     * Fetch poly count
-     * @return return number of stored polys
-     */
-    long size();
+    boolean remove(String id);
 
 }
