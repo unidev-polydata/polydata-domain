@@ -15,7 +15,9 @@
  */
 package com.unidev.polydata.manager;
 
+import com.unidev.polydata.domain.Poly;
 import com.unidev.polydata.service.PolyService;
+import com.unidev.polydata.service.ServicePolyVO;
 import com.unidev.polydata.storage.PolyStorage;
 
 import java.util.Map;
@@ -25,10 +27,25 @@ import java.util.Map;
  */
 public interface PolyManager {
 
+    /**
+     * Fetch poly manager storage
+     */
     PolyStorage storage();
 
+    /**
+     * Fetch available services
+     */
     Map<String, PolyService> services();
 
+    /**
+     * Persist poly
+     */
+    <P extends Poly> P persist(P poly);
+
+    /**
+     * Remove poly from storage
+     */
+    <P extends Poly> void remove(P poly);
 
 
 }
