@@ -18,30 +18,10 @@ package com.unidev.polydata.service;
 import com.unidev.polydata.domain.Poly;
 
 /**
- * Service for working with stored polys
+ * Value object for interacting with poly services
  */
-public interface PolyService {
+public interface ServicePolyVO {
 
-    /**
-     * Fetch service name
-     */
-    String name();
-
-    /**
-     * Handle adding new poly to storage
-     */
-    void polyAdded(ServicePolyVO poly);
-
-    /**
-     * Method invoked when poly is updated in storage
-     */
-    void polyUpdated(ServicePolyVO poly);
-
-    /**
-     * Handle case when poly is removed from storage
-     */
-    void polyRemoved(ServicePolyVO poly);
-
-
+    Poly poly();
 
 }
