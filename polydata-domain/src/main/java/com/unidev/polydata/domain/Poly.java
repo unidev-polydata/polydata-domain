@@ -52,6 +52,22 @@ public interface Poly extends Map<String, Object> {
      */
     Poly link(String link);
 
+    /**
+     * Set value in poly and return poly
+     * @return Updated poly
+     */
+    <T, P extends Poly> P with(String key, T value);
+
+    /**
+     * Fetch metadata by key, if value is missing, null is returned
+     */
+    <T> T fetch(String key);
+
+    /**
+     * Return default by key, if value is missing, defaultValue is returned
+     */
+    <T> T fetch(String key, T defaultValue);
+
 
 
 }
