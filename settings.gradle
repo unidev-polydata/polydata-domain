@@ -1,4 +1,2 @@
 include "polydata-domain"
 include "polydata-storage"
-include "polydata-service"
-include "polydata-manager"
