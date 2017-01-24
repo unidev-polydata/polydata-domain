@@ -33,6 +33,12 @@ public class BasicPolyTest {
 
         assertThat(newPoly, is(not(nullValue())));
         assertThat(newPoly.size(), is(0));
+
+        BasicPoly potatoPoly = BasicPoly.newPoly("potato");
+
+        assertThat(potatoPoly, is(not(nullValue())));
+        assertThat(potatoPoly.size(), is(1));
+        assertThat(potatoPoly._id(), is("potato"));
     }
 
 }
