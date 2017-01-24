@@ -40,6 +40,17 @@ public class BasicPolyBucket implements PolyBucket {
         return polys;
     }
 
+
+    public BasicPolyBucket metadata(BasicPoly metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public BasicPolyBucket polys(BasicPolyList polys) {
+        this.polys = polys;
+        return this;
+    }
+
     public BasicPoly getMetadata() {
         return metadata;
     }
