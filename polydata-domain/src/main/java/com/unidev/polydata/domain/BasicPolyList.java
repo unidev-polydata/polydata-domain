@@ -20,5 +20,5 @@ import java.util.ArrayList;
 /**
  * List of basic poly records
  */
-public class BasicPolyList extends ArrayList<BasicPoly> {
+public class BasicPolyList  extends ArrayList<BasicPoly> implements PolyList<BasicPoly>  {
 }
