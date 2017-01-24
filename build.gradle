@@ -8,9 +8,19 @@ subprojects {
     group = 'com.unidev.polydata'
     version = '2.1.0-SNAPSHOT'
 
-    apply from: 'http://dev.local/gradle/uploadArchivesSftp.groovy'
-    apply from: 'http://dev.local/gradle/defaultRepositories.groovy'
-    apply from: 'http://dev.local/gradle/javadoc.groovy'
+    if (project.hasProperty('unidevEnv')) {  //gradlew build  -PunidevEnv
+        println "Unidev Envirnoment build"
+        apply from: 'http://dev.local/gradle/uploadArchivesSftp.groovy'
+        apply from: 'http://dev.local/gradle/defaultRepositories.groovy'
+        apply from: 'http://dev.local/gradle/javadoc.groovy'
+    } else {
+        repositories {
+            mavenCentral()
+            jcenter()
+        }
+    }
+
+
 
     
 
