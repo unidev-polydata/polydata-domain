@@ -21,4 +21,9 @@ import java.util.ArrayList;
  * List of basic poly records
  */
 public class BasicPolyList  extends ArrayList<BasicPoly> implements PolyList<BasicPoly>  {
+
+    public static BasicPolyList newList() {
+        return new BasicPolyList();
+    }
+
 }
