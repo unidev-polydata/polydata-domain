@@ -37,7 +37,7 @@ public interface Poly extends Map<String, Object> {
      * @param id New poly id
      * @return poly instance
      */
-    Poly _id(String id);
+    <P  extends Poly> P _id(String id);
 
     /**
      * Fetch poly link field
@@ -50,7 +50,7 @@ public interface Poly extends Map<String, Object> {
      * @param link
      * @return
      */
-    Poly link(String link);
+    <P  extends Poly> P link(String link);
 
     /**
      * Set value in poly and return poly

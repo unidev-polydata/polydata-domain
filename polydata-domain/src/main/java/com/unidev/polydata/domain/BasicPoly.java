@@ -79,6 +79,13 @@ public class BasicPoly extends HashMap<String, Object> implements Poly {
         return this;
     }
 
+    @Override
+    public <T, P extends Poly> P with(String key, T value) {
+        put(key, value);
+        return (P) this;
+    }
+
+
     public String get_id() {
         return fetch(ID_KEY);
     }
