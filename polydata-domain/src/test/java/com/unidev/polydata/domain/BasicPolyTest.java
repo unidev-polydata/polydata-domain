@@ -19,6 +19,7 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.nullValue;
 
@@ -39,6 +40,20 @@ public class BasicPolyTest {
         assertThat(potatoPoly, is(not(nullValue())));
         assertThat(potatoPoly.size(), is(1));
         assertThat(potatoPoly._id(), is("potato"));
+    }
+
+    @Test
+    public void polyFetchTest() {
+        Poly poly = BasicPoly.newPoly()._id("qwe");
+        poly = poly.with("tomato", "potato");
+
+        assertThat(poly, is(notNullValue()));
+        assertThat(poly.fetch("tomato") + "", is("potato"));
+        assertThat(poly.fetch("tomato2", "123"), is("123"));
+
+        BasicPoly updatedPoly = BasicPoly.newPoly().with("abc", "123").link("qwe");
+        assertThat(updatedPoly, is(notNullValue()));
+        assertThat(updatedPoly.link(), is("qwe"));
     }
 
 }
