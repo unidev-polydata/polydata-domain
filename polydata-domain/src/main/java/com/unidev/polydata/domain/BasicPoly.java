@@ -35,6 +35,8 @@ public class BasicPoly extends HashMap<String, Object> implements Poly {
      */
     public static BasicPoly newPoly(String id) {return new BasicPoly()._id(id);}
 
+    public BasicPoly() {}
+
     /**
      * Fetch metadata by key, if value is missing, null is returned
      * @param key Metadata key
