@@ -26,4 +26,6 @@ public class BasicPolyList  extends ArrayList<BasicPoly> implements PolyList<Bas
         return new BasicPolyList();
     }
 
+    public BasicPolyList() {}
+
 }

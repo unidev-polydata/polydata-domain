@@ -30,6 +30,8 @@ public class BasicPolyBucket implements PolyBucket {
         return new BasicPolyBucket();
     }
 
+    public BasicPolyBucket() {}
+
     @Override
     public BasicPoly metadata() {
         return metadata;
