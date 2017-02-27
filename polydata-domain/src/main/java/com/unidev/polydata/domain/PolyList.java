@@ -15,11 +15,12 @@
  */
 package com.unidev.polydata.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Basic list of poly records
  * @param <T>
  */
-public interface PolyList<T extends Poly> extends List<T> {
+public interface PolyList<T extends Poly> extends List<T>, Serializable {
 }

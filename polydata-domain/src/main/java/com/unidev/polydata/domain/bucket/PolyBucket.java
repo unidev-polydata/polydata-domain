@@ -18,10 +18,12 @@ package com.unidev.polydata.domain.bucket;
 import com.unidev.polydata.domain.Poly;
 import com.unidev.polydata.domain.PolyList;
 
+import java.io.Serializable;
+
 /**
  * Bucket of polys contains metadata and list of polys
  */
-public interface PolyBucket {
+public interface PolyBucket extends Serializable {
 
     <P extends Poly> P metadata();
 
