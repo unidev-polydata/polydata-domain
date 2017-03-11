@@ -4,15 +4,22 @@ Domain classes for poly records, storage, service
 
 Java 7 version for Android compatibility
 
-Development version 2.1.0-SNAPSHOT
+Development version 2.2.0-SNAPSHOT
 
 ```
-compile 'com.unidev.polydata:polydata-domain:2.1.0-SNAPSHOT'
-compile 'com.unidev.polydata:polydata-storage:2.1.0-SNAPSHOT'
+compile 'com.unidev.polydata:polydata-domain:2.2.0-SNAPSHOT'
+compile 'com.unidev.polydata:polydata-storage:2.2.0-SNAPSHOT'
 ```
 
 Releases
 ========
+
+version 2.1.0 - added poly bucket records
+
+```
+compile 'com.unidev.polydata:polydata-domain:2.1.0'
+compile 'com.unidev.polydata:polydata-storage:2.1.0'
+```
 
 version 2.0.0 - basic API for polys storage
 
