@@ -1,5 +1,7 @@
 # Polydata domain
 
+[![Build Status](https://travis-ci.org/unidev-polydata/polydata-domain.svg?branch=master)](https://travis-ci.org/unidev-polydata/polydata-domain)
+
 Domain classes for poly records, storage, service
 
 Java 7 version for Android compatibility
