@@ -6,10 +6,10 @@ subprojects {
     apply plugin: 'idea'
 
     group = 'com.unidev.polydata'
-    version = '2.1.0'
+    version = '2.1.1-SNAPSHOT'
 
     if (project.hasProperty('unidevEnv')) {  //gradlew build  -PunidevEnv
-        println "Unidev Envirnoment build"
+        println "Unidev Environment build"
         apply from: 'http://dev.local/gradle/uploadArchivesSftp.groovy'
         apply from: 'http://dev.local/gradle/defaultRepositories.groovy'
         apply from: 'http://dev.local/gradle/javadoc.groovy'
