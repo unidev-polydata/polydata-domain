@@ -28,4 +28,19 @@ public class BasicPolyList  extends ArrayList<BasicPoly> implements PolyList<Bas
 
     public BasicPolyList() {}
 
+
+    @Override
+    public BasicPoly fetchPoly(String polyId) {
+        for(BasicPoly poly : this) {
+            if (polyId.equals(poly._id())) {
+                return poly;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean hasPoly(String polyId) {
+        return fetchPoly(polyId) != null;
+    }
 }

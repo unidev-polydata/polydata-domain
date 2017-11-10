@@ -23,4 +23,15 @@ import java.util.List;
  * @param <T>
  */
 public interface PolyList<T extends Poly> extends List<T>, Serializable {
+
+    /**
+     * Fetch poly by id from list.
+     */
+    T fetchPoly(String polyId);
+
+    /**
+     * Check if list have poly by id.
+     */
+    boolean hasPoly(String polyId);
+
 }
