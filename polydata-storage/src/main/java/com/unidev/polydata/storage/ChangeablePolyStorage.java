@@ -20,7 +20,7 @@ import com.unidev.polydata.domain.Poly;
 /**
  * Poly storage which allows changes on stored records
  */
-public interface ChangablePolyStorage extends PolyStorage {
+public interface ChangeablePolyStorage extends PolyStorage {
 
     /**
      * Persist poly into storage
