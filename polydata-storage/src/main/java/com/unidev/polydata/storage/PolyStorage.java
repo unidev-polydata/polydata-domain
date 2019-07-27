@@ -19,6 +19,7 @@ import com.unidev.polydata.domain.Poly;
 import com.unidev.polydata.domain.PolyList;
 import com.unidev.polydata.domain.PolyQuery;
 
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -44,9 +45,16 @@ public interface PolyStorage {
      */
     <P extends Poly> P persist(String container, P poly);
 
+    /**
+     * Persist poly record in index
+     */
+    <P extends Poly> P persistIndex(String container, Map<String, Object> keys, P poly);
+
     <P extends Poly> P persistMetadata(String container, P metadata);
 
     <P extends PolyList> P query(String container, PolyQuery polyQuery);
+
+    <P extends PolyList> P queryIndex(String container, PolyQuery polyQuery);
 
     /**
      * Remove poly from storage
