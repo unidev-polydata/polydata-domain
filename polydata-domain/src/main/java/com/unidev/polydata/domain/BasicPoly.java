@@ -1,12 +1,12 @@
 /**
  * Copyright (c) 2015,2016 Denis O <denis@universal-development.com>
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,26 +16,37 @@
 package com.unidev.polydata.domain;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Basic storage for polydata records
  */
-public class BasicPoly extends HashMap<String, Object> implements Poly {
+public class BasicPoly implements Poly {
+
+    private Map<String, Object> data;
+    private Poly metadata;
 
     /**
      * Build new poly instance
      * @return new poly instance
      */
-    public static BasicPoly newPoly() {return new BasicPoly(); }
+    public static BasicPoly newPoly() {
+        return new BasicPoly();
+    }
 
     /**
      * New poly instance with id
      * @param id Poly id
      * @return new poly instance with provided id
      */
-    public static BasicPoly newPoly(String id) {return new BasicPoly()._id(id);}
+    public static BasicPoly newPoly(String id) {
+        return new BasicPoly()._id(id);
+    }
 
-    public BasicPoly() {}
+    public BasicPoly() {
+        data = new HashMap<>();
+        metadata = new BasicPoly();
+    }
 
     /**
      * Fetch metadata by key, if value is missing, null is returned
@@ -43,10 +54,10 @@ public class BasicPoly extends HashMap<String, Object> implements Poly {
      * @return value by key or null
      */
     public <T> T fetch(String key) {
-        if (!super.containsKey(key)) {
+        if (!data.containsKey(key)) {
             return null;
         }
-        return (T) get(key);
+        return (T) data.get(key);
     }
 
     /**
@@ -57,10 +68,32 @@ public class BasicPoly extends HashMap<String, Object> implements Poly {
      * @return
      */
     public <T> T fetch(String key, T defaultValue) {
-        if (!super.containsKey(key)) {
+        if (!data.containsKey(key)) {
             return defaultValue;
         }
-        return (T) get(key);
+        return (T) data.get(key);
+    }
+
+    @Override
+    public Map<String, Object> data() {
+        return data;
+    }
+
+    @Override
+    public <P extends Poly> P withData(Map<String, Object> data) {
+        this.data = data;
+        return (P) this;
+    }
+
+    @Override
+    public Poly metadata() {
+        return metadata;
+    }
+
+    @Override
+    public <P extends Poly> P withMetadata(Poly metadata) {
+        this.metadata = metadata;
+        return (P) this;
     }
 
     public String link() {
@@ -87,7 +120,6 @@ public class BasicPoly extends HashMap<String, Object> implements Poly {
         return (P) this;
     }
 
-
     public String get_id() {
         return fetch(ID_KEY);
     }
@@ -104,4 +136,13 @@ public class BasicPoly extends HashMap<String, Object> implements Poly {
         put(LINK_KEY, link);
     }
 
+    @Override
+    public boolean containsKey(String key) {
+        return data.containsKey(key);
+    }
+
+    @Override
+    public <T> void put(String key, T value) {
+        data.put(key, value);
+    }
 }

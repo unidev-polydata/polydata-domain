@@ -15,25 +15,26 @@
  */
 package com.unidev.polydata.domain;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
  * List of basic poly records
  */
-public class BasicPolyList implements PolyList<BasicPoly>  {
+public class BasicPolyMap implements PolyMap<BasicPoly>  {
 
-    private List<BasicPoly> list;
+    private Map<String, BasicPoly> map;
     private Poly metadata;
 
-    public static BasicPolyList newList() {
-        return new BasicPolyList();
+    public static BasicPolyMap basicPolyMap() {
+        return new BasicPolyMap();
     }
 
-    public BasicPolyList() {
-        list = new ArrayList<>();
+    public BasicPolyMap() {
         metadata = new BasicPoly();
+        map = new HashMap<>();
     }
 
     @Override
@@ -42,30 +43,27 @@ public class BasicPolyList implements PolyList<BasicPoly>  {
     }
 
     @Override
-    public PolyList<BasicPoly> withMetadata(Poly metadata) {
-        this.metadata = metadata;
+    public PolyMap<BasicPoly> withMetadata(Poly meta) {
+        metadata = meta;
         return this;
     }
 
     @Override
-    public List<BasicPoly> list() {
-        return list;
+    public Map<String, BasicPoly> map() {
+        return map;
     }
 
     @Override
-    public PolyList<BasicPoly> withList(List<BasicPoly> polys) {
-        this.list = polys;
+    public PolyMap<BasicPoly> withMap(Map<String, BasicPoly> map) {
+        this.map = map;
         return this;
     }
 
     @Override
     public Optional<BasicPoly> polyById(String id) {
-        for(BasicPoly basicPoly : list) {
-            if (basicPoly._id().equals(id)) {
-                return Optional.of(basicPoly);
-            }
+        if (map.containsKey(id)) {
+            return Optional.of(map.get(id));
         }
         return Optional.empty();
     }
-
 }

@@ -6,7 +6,7 @@ subprojects {
     apply plugin: 'idea'
 
     group = 'com.unidev.polydata'
-    version = '2.1.2'
+    version = '2.2.0-SNAPSHOT'
 
     if (project.hasProperty('unidevEnv')) {  //gradlew build  -PunidevEnv
         println "Unidev Environment build"
@@ -34,10 +34,9 @@ subprojects {
         }
     }
 
-    tasks.withType(JavaCompile) {  // yes, android usage have own limits...
-        //TODO: new android api support Java 8 libraries
-        sourceCompatibility = "1.7"
-        targetCompatibility = "1.7"
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = "1.8"
+        targetCompatibility = "1.8"
     }
 
     task sourcesJar(type: Jar, dependsOn: classes) {

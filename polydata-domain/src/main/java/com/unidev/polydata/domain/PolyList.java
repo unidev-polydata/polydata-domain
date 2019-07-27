@@ -15,23 +15,26 @@
  */
 package com.unidev.polydata.domain;
 
-import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 /**
- * Basic list of poly records
+ * Ordered list of polys
  * @param <T>
  */
-public interface PolyList<T extends Poly> extends List<T>, Serializable {
+public interface PolyList<T extends Poly> {
+
+    Poly metadata();
+
+    PolyList<T> withMetadata(Poly meta);
+
+    List<T> list();
+
+    PolyList<T> withList(List<T> poly);
 
     /**
-     * Fetch poly by id from list.
+     * Greedy search of polys in the list
      */
-    T fetchPoly(String polyId);
-
-    /**
-     * Check if list have poly by id.
-     */
-    boolean hasPoly(String polyId);
+    Optional<T> polyById(String id);
 
 }

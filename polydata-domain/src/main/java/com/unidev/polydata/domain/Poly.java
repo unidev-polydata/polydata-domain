@@ -21,7 +21,7 @@ import java.util.Map;
  * Poly  - storage for polydata records
  * Each poly predefined field for _id and link
  */
-public interface Poly extends Map<String, Object> {
+public interface Poly {
 
     String LINK_KEY = "link";
     String ID_KEY = "_id";
@@ -58,6 +58,8 @@ public interface Poly extends Map<String, Object> {
      */
     <T, P extends Poly> P with(String key, T value);
 
+    <T> void put(String key, T value);
+
     /**
      * Fetch metadata by key, if value is missing, null is returned
      */
@@ -68,6 +70,17 @@ public interface Poly extends Map<String, Object> {
      */
     <T> T fetch(String key, T defaultValue);
 
+    /**
+     * Fetch poly data.
+     */
+    Map<String, Object> data();
 
+    <P extends Poly> P withData(Map<String, Object> data);
+
+    Poly metadata();
+
+    <P extends Poly> P withMetadata(Poly metadata);
+
+    boolean containsKey(String key);
 
 }

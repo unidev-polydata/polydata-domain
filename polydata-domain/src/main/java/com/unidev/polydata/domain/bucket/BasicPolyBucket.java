@@ -21,6 +21,7 @@ import com.unidev.polydata.domain.BasicPolyList;
 /**
  * Basic poly bucket
  */
+@Deprecated
 public class BasicPolyBucket implements PolyBucket {
 
     private BasicPoly metadata;

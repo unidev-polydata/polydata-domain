@@ -13,20 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.unidev.polydata.domain.bucket;
+package com.unidev.polydata.domain;
 
-import com.unidev.polydata.domain.Poly;
-import com.unidev.polydata.domain.PolyList;
-
-import java.io.Serializable;
+import java.util.Map;
+import java.util.Optional;
 
 /**
- * Bucket of polys contains metadata and list of polys
+ * Map of polys.
+ * @param <T>
  */
-@Deprecated
-public interface PolyBucket extends Serializable {
+public interface PolyMap<T extends Poly> {
 
-    <P extends Poly> P metadata();
+    Poly metadata();
 
-    <P extends PolyList> P polys();
+    PolyMap<T> withMetadata(Poly meta);
+
+    Map<String, T> map();
+
+    PolyMap<T> withMap(Map<String, T> map);
+
+    /**
+     * Get poly by id
+     */
+    Optional<T> polyById(String id);
+
 }
