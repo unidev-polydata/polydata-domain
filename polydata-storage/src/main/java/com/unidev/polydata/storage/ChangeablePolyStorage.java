@@ -15,26 +15,9 @@
  */
 package com.unidev.polydata.storage;
 
-import com.unidev.polydata.domain.Poly;
-
-/**
- * Poly storage which allows changes on stored records
- */
+@Deprecated
 public interface ChangeablePolyStorage extends PolyStorage {
 
-    /**
-     * Persist poly into storage
-     * @param poly Poly to store
-     * @param <P>
-     * @return
-     */
-    <P extends Poly> P persist(P poly);
 
-    /**
-     * Remove poly from storage
-     * @param id
-     * @return true - if success, false - if poly not found
-     */
-    boolean remove(String id);
 
 }

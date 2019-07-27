@@ -16,8 +16,9 @@
 package com.unidev.polydata.storage;
 
 import com.unidev.polydata.domain.Poly;
-
-import java.util.Collection;
+import com.unidev.polydata.domain.PolyList;
+import com.unidev.polydata.domain.PolyMap;
+import com.unidev.polydata.domain.PolyQuery;
 
 /**
  * Generic poly storage
@@ -26,27 +27,46 @@ public interface PolyStorage {
 
     /**
      * Fetch storage metadata
-     * @return
      */
-    <P extends Poly> P metadata();
+    <P extends Poly> P metadata(String container);
 
     /**
      * Fetch poly record by id
      * @param id Poly id
      * @return stored poly or null if nothing found
      */
-     <P extends Poly> P fetchById(String id);
+     <P extends Poly> P fetchById(String container, String id);
+
+     <P extends PolyList> P fetchPolyList(String container);
+
+     <P extends PolyMap> P fetchPolyMap(String container);
 
     /**
-     * List stored poly records
-     * @return
+     * Persist poly into storage
+     * @param poly Poly to store
      */
-    Collection<? extends Poly> list();
+    <P extends Poly> P persist(String container, P poly);
+
+    <P extends PolyList> P persist(String container,P polyList);
+
+    <P extends PolyMap> P persist(String container,P polyMap);
+
+    <P extends PolyList> P query(String container, PolyQuery polyQuery);
 
     /**
-     * Fetch poly count
-     * @return return number of stored polys
+     * Remove poly from storage
+     * @return true - if success, false - if poly not found
      */
-    long size();
+    boolean removePoly(String container, String id);
+
+    /**
+     * Remove poly list by container
+     */
+    boolean removePolyList(String container);
+
+    /**
+     * Remove poly map.
+     */
+    boolean removePolyMap(String container);
 
 }
