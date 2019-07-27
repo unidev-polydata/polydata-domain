@@ -20,6 +20,8 @@ import com.unidev.polydata.domain.PolyList;
 import com.unidev.polydata.domain.PolyMap;
 import com.unidev.polydata.domain.PolyQuery;
 
+import java.util.Optional;
+
 /**
  * Generic poly storage
  */
@@ -28,24 +30,26 @@ public interface PolyStorage {
     /**
      * Fetch storage metadata
      */
-    <P extends Poly> P metadata(String container);
+    <P extends Poly> Optional<P> metadata(String container);
 
     /**
      * Fetch poly record by id
      * @param id Poly id
      * @return stored poly or null if nothing found
      */
-     <P extends Poly> P fetchById(String container, String id);
+     <P extends Poly> Optional<P> fetchById(String container, String id);
 
-     <P extends PolyList> P fetchPolyList(String container);
+     <P extends PolyList> Optional<P> fetchPolyList(String container);
 
-     <P extends PolyMap> P fetchPolyMap(String container);
+     <P extends PolyMap> Optional<P> fetchPolyMap(String container);
 
     /**
      * Persist poly into storage
      * @param poly Poly to store
      */
     <P extends Poly> P persist(String container, P poly);
+
+    <P extends Poly> P persistMetadata(String container, P metadata);
 
     <P extends PolyList> P persist(String container,P polyList);
 
