@@ -66,4 +66,23 @@ public class BasicPolyMap implements PolyMap<BasicPoly>  {
         }
         return Optional.empty();
     }
+
+    @Override
+    public <P extends Poly> PolyMap<BasicPoly> put(P poly) {
+        map.put(poly._id(), (BasicPoly) poly);
+        return this;
+    }
+
+    @Override
+    public <P extends Poly> PolyMap<BasicPoly> delete(String polyId) {
+        map.remove(polyId);
+        return this;
+    }
+
+    @Override
+    public boolean hasPoly(String polyId) {
+        return polyById(polyId).isPresent();
+    }
+
+
 }

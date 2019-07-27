@@ -37,4 +37,11 @@ public interface PolyMap<T extends Poly> {
      */
     Optional<T> polyById(String id);
 
+    <P extends Poly> PolyMap<T> put(P poly);
+
+    <P extends Poly> PolyMap<T> delete(String polyId);
+
+    boolean hasPoly(String polyId);
 }
+
+

@@ -80,6 +80,12 @@ public class BasicPoly implements Poly {
     }
 
     @Override
+    public <P extends Poly> P delete(String key) {
+        data.remove(key);
+        return (P) this;
+    }
+
+    @Override
     public Map<String, Object> data() {
         return data;
     }

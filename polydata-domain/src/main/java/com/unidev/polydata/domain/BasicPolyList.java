@@ -1,12 +1,12 @@
 /**
  * Copyright (c) 2015,2016 Denis O <denis@universal-development.com>
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -22,7 +22,7 @@ import java.util.Optional;
 /**
  * List of basic poly records
  */
-public class BasicPolyList implements PolyList<BasicPoly>  {
+public class BasicPolyList implements PolyList<BasicPoly> {
 
     private List<BasicPoly> list;
     private Poly metadata;
@@ -60,7 +60,7 @@ public class BasicPolyList implements PolyList<BasicPoly>  {
 
     @Override
     public Optional<BasicPoly> polyById(String id) {
-        for(BasicPoly basicPoly : list) {
+        for (BasicPoly basicPoly : list) {
             if (basicPoly._id().equals(id)) {
                 return Optional.of(basicPoly);
             }
@@ -71,6 +71,19 @@ public class BasicPolyList implements PolyList<BasicPoly>  {
     @Override
     public <P extends Poly> PolyList<BasicPoly> add(P poly) {
         list.add((BasicPoly) poly);
+        return this;
+    }
+
+    @Override
+    public PolyList<BasicPoly> delete(String polyId) {
+        BasicPoly toDelete = null;
+        for (BasicPoly poly : list) {
+            if (poly._id().equals(polyId)) {
+                toDelete = poly;
+                break;
+            }
+        }
+        list.remove(toDelete);
         return this;
     }
 

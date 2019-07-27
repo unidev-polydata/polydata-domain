@@ -71,6 +71,11 @@ public interface Poly {
     <T> T fetch(String key, T defaultValue);
 
     /**
+     * Delete poly key.
+     */
+    <P extends Poly> P  delete(String key);
+
+    /**
      * Fetch poly data.
      */
     Map<String, Object> data();

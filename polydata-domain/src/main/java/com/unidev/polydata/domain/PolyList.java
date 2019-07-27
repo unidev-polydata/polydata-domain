@@ -39,6 +39,8 @@ public interface PolyList<T extends Poly> {
 
     <P extends Poly> PolyList<T> add(P poly);
 
+    PolyList<T> delete(String polyId);
+
     boolean hasPoly(String polyId);
 
 }
