@@ -18,6 +18,8 @@ package com.unidev.polydata.domain;
 
 import org.junit.Test;
 
+import java.util.Optional;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -37,7 +39,7 @@ public class BasicPolyListTest {
         polyList.add(potato);
         polyList.add(tomato);
 
-        assertThat(polyList.size(), is(2));
+        assertThat(polyList.list().size(), is(2));
     }
 
     @Test
@@ -47,13 +49,12 @@ public class BasicPolyListTest {
 
         polyList.add(potato);
 
-        BasicPoly poly = polyList.fetchPoly("potato");
-        assertThat(poly, is(notNullValue()));
-        assertThat(poly._id(), is("potato"));
+        Optional<BasicPoly> poly = polyList.polyById("potato");
+        assertThat(poly.isPresent(), is(true));
+        assertThat(poly.get()._id(), is("potato"));
 
-        BasicPoly notExistingPoly = polyList.fetchPoly("123");
-        assertThat(notExistingPoly, is(nullValue()));
-
+        Optional<BasicPoly> notExistingPoly = polyList.polyById("123");
+        assertThat(notExistingPoly.isPresent(), is(false));
     }
 
     @Test

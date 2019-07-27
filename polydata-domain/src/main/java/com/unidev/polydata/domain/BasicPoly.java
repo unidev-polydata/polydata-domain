@@ -43,9 +43,14 @@ public class BasicPoly implements Poly {
         return new BasicPoly()._id(id);
     }
 
+    public BasicPoly(Map<String, Object> data, Poly metadata) {
+        this.data = data;
+        this.metadata = metadata;
+    }
+
     public BasicPoly() {
         data = new HashMap<>();
-        metadata = new BasicPoly();
+        metadata = new BasicPoly(new HashMap<>(), null);
     }
 
     /**

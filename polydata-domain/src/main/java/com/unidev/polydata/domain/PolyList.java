@@ -37,4 +37,8 @@ public interface PolyList<T extends Poly> {
      */
     Optional<T> polyById(String id);
 
+    <P extends Poly> PolyList<T> add(P poly);
+
+    boolean hasPoly(String polyId);
+
 }

@@ -25,6 +25,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Basic poly bucket tests
  */
+@Deprecated
 public class BasicPolyBucketTest {
 
     @Test

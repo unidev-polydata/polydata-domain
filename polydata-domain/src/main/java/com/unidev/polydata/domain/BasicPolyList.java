@@ -68,4 +68,15 @@ public class BasicPolyList implements PolyList<BasicPoly>  {
         return Optional.empty();
     }
 
+    @Override
+    public <P extends Poly> PolyList<BasicPoly> add(P poly) {
+        list.add((BasicPoly) poly);
+        return this;
+    }
+
+    @Override
+    public boolean hasPoly(String polyId) {
+        return polyById(polyId).isPresent();
+    }
+
 }
