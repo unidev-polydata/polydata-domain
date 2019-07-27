@@ -23,8 +23,8 @@ import java.util.Map;
  */
 public class BasicPoly implements Poly {
 
-    private Map<String, Object> data;
-    private Poly metadata;
+    protected Map<String, Object> data;
+    protected Poly metadata;
 
     /**
      * Build new poly instance

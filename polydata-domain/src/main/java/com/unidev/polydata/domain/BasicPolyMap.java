@@ -23,17 +23,16 @@ import java.util.Optional;
 /**
  * List of basic poly records
  */
-public class BasicPolyMap implements PolyMap<BasicPoly>  {
+public class BasicPolyMap extends BasicPoly implements PolyMap<BasicPoly> {
 
     private Map<String, BasicPoly> map;
-    private Poly metadata;
 
     public static BasicPolyMap basicPolyMap() {
         return new BasicPolyMap();
     }
 
     public BasicPolyMap() {
-        metadata = new BasicPoly();
+        super();
         map = new HashMap<>();
     }
 
@@ -74,7 +73,7 @@ public class BasicPolyMap implements PolyMap<BasicPoly>  {
     }
 
     @Override
-    public <P extends Poly> PolyMap<BasicPoly> delete(String polyId) {
+    public <P extends Poly> PolyMap<BasicPoly> deletePoly(String polyId) {
         map.remove(polyId);
         return this;
     }

@@ -22,18 +22,17 @@ import java.util.Optional;
 /**
  * List of basic poly records
  */
-public class BasicPolyList implements PolyList<BasicPoly> {
+public class BasicPolyList extends BasicPoly implements PolyList<BasicPoly> {
 
     private List<BasicPoly> list;
-    private Poly metadata;
 
     public static BasicPolyList newList() {
         return new BasicPolyList();
     }
 
     public BasicPolyList() {
+        super();
         list = new ArrayList<>();
-        metadata = new BasicPoly();
     }
 
     @Override

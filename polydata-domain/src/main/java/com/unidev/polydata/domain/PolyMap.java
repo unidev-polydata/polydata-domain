@@ -22,7 +22,7 @@ import java.util.Optional;
  * Map of polys.
  * @param <T>
  */
-public interface PolyMap<T extends Poly> {
+public interface PolyMap<T extends Poly> extends Poly {
 
     Poly metadata();
 
@@ -39,7 +39,7 @@ public interface PolyMap<T extends Poly> {
 
     <P extends Poly> PolyMap<T> put(P poly);
 
-    <P extends Poly> PolyMap<T> delete(String polyId);
+    <P extends Poly> PolyMap<T> deletePoly(String polyId);
 
     boolean hasPoly(String polyId);
 }

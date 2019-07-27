@@ -22,7 +22,7 @@ import java.util.Optional;
  * Ordered list of polys
  * @param <T>
  */
-public interface PolyList<T extends Poly> {
+public interface PolyList<T extends Poly> extends Poly {
 
     Poly metadata();
 

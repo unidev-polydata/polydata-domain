@@ -17,13 +17,12 @@ package com.unidev.polydata.storage;
 
 import com.unidev.polydata.domain.Poly;
 import com.unidev.polydata.domain.PolyList;
-import com.unidev.polydata.domain.PolyMap;
 import com.unidev.polydata.domain.PolyQuery;
 
 import java.util.Optional;
 
 /**
- * Generic poly storage
+ * Generic poly storage.
  */
 public interface PolyStorage {
 
@@ -39,10 +38,6 @@ public interface PolyStorage {
      */
      <P extends Poly> Optional<P> fetchById(String container, String id);
 
-     <P extends PolyList> Optional<P> fetchPolyList(String container);
-
-     <P extends PolyMap> Optional<P> fetchPolyMap(String container);
-
     /**
      * Persist poly into storage
      * @param poly Poly to store
@@ -51,10 +46,6 @@ public interface PolyStorage {
 
     <P extends Poly> P persistMetadata(String container, P metadata);
 
-    <P extends PolyList> P persist(String container,P polyList);
-
-    <P extends PolyMap> P persist(String container,P polyMap);
-
     <P extends PolyList> P query(String container, PolyQuery polyQuery);
 
     /**
@@ -62,15 +53,5 @@ public interface PolyStorage {
      * @return true - if success, false - if poly not found
      */
     boolean removePoly(String container, String id);
-
-    /**
-     * Remove poly list by container
-     */
-    boolean removePolyList(String container);
-
-    /**
-     * Remove poly map.
-     */
-    boolean removePolyMap(String container);
 
 }
