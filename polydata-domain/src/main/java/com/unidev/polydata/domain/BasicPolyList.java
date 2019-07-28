@@ -52,6 +52,11 @@ public class BasicPolyList extends BasicPoly implements PolyList<BasicPoly> {
     }
 
     @Override
+    public List<BasicPoly> getList() {
+        return list;
+    }
+
+    @Override
     public PolyList<BasicPoly> withList(List<BasicPoly> polys) {
         this.list = polys;
         return this;

@@ -30,6 +30,8 @@ public interface PolyList<T extends Poly> extends Poly {
 
     List<T> list();
 
+    List<T> getList();
+
     PolyList<T> withList(List<T> poly);
 
     /**
