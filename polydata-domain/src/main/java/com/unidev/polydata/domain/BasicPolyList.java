@@ -42,7 +42,7 @@ public class BasicPolyList extends BasicPoly implements PolyList<BasicPoly> {
 
     @Override
     public PolyList<BasicPoly> withMetadata(Poly metadata) {
-        this.metadata = metadata;
+        this.metadata = (BasicPoly) metadata;
         return this;
     }
 

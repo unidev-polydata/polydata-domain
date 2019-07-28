@@ -43,7 +43,7 @@ public class BasicPolyMap extends BasicPoly implements PolyMap<BasicPoly> {
 
     @Override
     public PolyMap<BasicPoly> withMetadata(Poly meta) {
-        metadata = meta;
+        metadata = (BasicPoly) meta;
         return this;
     }
 

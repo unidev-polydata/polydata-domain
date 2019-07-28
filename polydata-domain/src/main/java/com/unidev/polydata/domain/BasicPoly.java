@@ -24,7 +24,7 @@ import java.util.Map;
 public class BasicPoly implements Poly {
 
     protected Map<String, Object> data;
-    protected Poly metadata;
+    protected BasicPoly metadata;
 
     /**
      * Build new poly instance
@@ -43,7 +43,7 @@ public class BasicPoly implements Poly {
         return new BasicPoly()._id(id);
     }
 
-    public BasicPoly(Map<String, Object> data, Poly metadata) {
+    public BasicPoly(Map<String, Object> data, BasicPoly metadata) {
         this.data = data;
         this.metadata = metadata;
     }
@@ -118,13 +118,13 @@ public class BasicPoly implements Poly {
 
     @Override
     public <P extends Poly> P withMetadata(Poly metadata) {
-        this.metadata = metadata;
+        this.metadata = (BasicPoly) metadata;
         return (P) this;
     }
 
     @Override
     public void setMetadata(Poly metadata) {
-        this.metadata = metadata;
+        this.metadata = (BasicPoly) metadata;
     }
 
     public String link() {
