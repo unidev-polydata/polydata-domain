@@ -78,13 +78,22 @@ public interface Poly {
     /**
      * Fetch poly data.
      */
+
     Map<String, Object> data();
+
+    Map<String, Object> getData();
+
+    void setData(Map<String, Object> data);
 
     <P extends Poly> P withData(Map<String, Object> data);
 
     Poly metadata();
 
+    Poly getMetadata();
+
     <P extends Poly> P withMetadata(Poly metadata);
+
+    void setMetadata(Poly metadata);
 
     boolean containsKey(String key);
 

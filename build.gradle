@@ -6,7 +6,7 @@ subprojects {
     apply plugin: 'idea'
 
     group = 'com.unidev.polydata'
-    version = '2.2.2-SNAPSHOT'
+    version = '2.2.3-SNAPSHOT'
 
     if (project.hasProperty('unidevEnv')) {  //gradlew build  -PunidevEnv
         println "Unidev Environment build"

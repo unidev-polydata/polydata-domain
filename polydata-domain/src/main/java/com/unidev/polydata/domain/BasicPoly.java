@@ -86,6 +86,16 @@ public class BasicPoly implements Poly {
     }
 
     @Override
+    public Map<String, Object> getData() {
+        return data;
+    }
+
+    @Override
+    public void setData(Map<String, Object> data) {
+        this.data = data;
+    }
+
+    @Override
     public Map<String, Object> data() {
         return data;
     }
@@ -97,6 +107,11 @@ public class BasicPoly implements Poly {
     }
 
     @Override
+    public Poly getMetadata() {
+        return this.metadata;
+    }
+
+    @Override
     public Poly metadata() {
         return metadata;
     }
@@ -105,6 +120,11 @@ public class BasicPoly implements Poly {
     public <P extends Poly> P withMetadata(Poly metadata) {
         this.metadata = metadata;
         return (P) this;
+    }
+
+    @Override
+    public void setMetadata(Poly metadata) {
+        this.metadata = metadata;
     }
 
     public String link() {
